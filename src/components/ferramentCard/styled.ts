@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Card = styled.div<{ color: string }>`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: ${({ theme }) => theme.colors.shadow};
   padding: 32px 24px 24px 24px;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ export const Card = styled.div<{ color: string }>`
   min-height: 180px;
   cursor: pointer;
   transition: box-shadow 0.2s, transform 0.2s;
-  border: 1px solid #f0f0f0;
+  border: 1px solid ${({ theme }) => theme.colors.border};
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -35,11 +35,11 @@ export const Title = styled.h3`
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0 0 8px 0;
-  color: #222;
+  color: ${({ theme }) => theme.colors.cardTitle};
 `;
 
 export const Desc = styled.p`
-  color: #6c757d;
+  color: ${({ theme }) => theme.colors.cardDesc};
   font-size: 1rem;
   margin: 0;
 `;
