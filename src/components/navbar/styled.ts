@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 export const Nav = styled.nav`
   width: 100%;
-  background: #005ca9;
+  background: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
@@ -72,8 +72,8 @@ export const Link = styled(RouterLink)`
   position: relative;
 
   &:hover {
-    color: #2d3748;
-    background: #f8fafc;
+    color: ${({ theme }) => theme.colors.hoverText};
+    background: ${({ theme }) => theme.colors.hoverBackground};
 
     &::before {
       content: "";
@@ -95,14 +95,14 @@ export const AuthArea = styled.div`
 `;
 
 export const LoginBtn = styled.button`
-  /* background: transparent; */
-  color: #005ca9;
-  border: 1px solid #005ca9;
+  color: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   padding: 10px 18px;
   border-radius: 8px;
+  background: transparent;
   transition: all 0.2s;
 
   &:hover {
@@ -111,7 +111,7 @@ export const LoginBtn = styled.button`
 `;
 
 export const RegisterBtn = styled.button`
-  background: #005ca9;
+  background: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;
   border-radius: 8px;
