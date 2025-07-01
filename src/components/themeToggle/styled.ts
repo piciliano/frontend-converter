@@ -10,6 +10,6 @@ export const ToggleBtn = styled.button`
   transition: color 0.2s;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.card};
   }
 `;
