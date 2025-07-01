@@ -69,7 +69,7 @@ export const ConvertImage = () => {
   return (
     <div>
       <h2>Imagem para PDF</h2>
-      <Dropzone onFile={handleFile} />
+      <Dropzone onFile={handleFile} accept="image/jpeg,image/png" />
       {file && <p>Arquivo selecionado: {file.name}</p>}
       <Button
         onClick={handleUpload}
