@@ -6,7 +6,7 @@ export const DropContainer = styled.div`
   padding: ${({ theme }) => theme.spacing(4)};
   text-align: center;
   color: ${({ theme }) => theme.colors.text};
-  background: #f8f9fa;
+  background: ${({ theme }) => theme.colors.secondaryBackground};
   cursor: pointer;
   transition: border 0.2s;
 
