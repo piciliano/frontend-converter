@@ -69,7 +69,7 @@ export const ConvertWord = () => {
   return (
     <div>
       <h2>Word para PDF</h2>
-      <Dropzone onFile={handleFile} />
+      <Dropzone onFile={handleFile} accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
       {file && <p>Arquivo selecionado: {file.name}</p>}
       <Button
         onClick={handleUpload}
