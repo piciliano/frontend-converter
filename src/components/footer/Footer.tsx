@@ -1,9 +1,4 @@
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaYoutube,
-  FaRss,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
@@ -16,11 +11,9 @@ import {
   FooterContainer,
   Col,
   Logo,
-  Desc,
   Title,
   List,
   ListItem,
-  Social,
   BottomBar,
 } from "./styled";
 
@@ -31,16 +24,27 @@ export function Footer() {
     <FooterBg>
       <FooterContainer>
         <Col>
-          <Logo>
-            <img
-              src={LOGO}
-              alt="Logo do Estado de Alagoas"
-              style={{
-                width: "15rem",
-                background: "#fff",
-              }}
-            />
-          </Logo>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Logo>
+              <img
+                src={LOGO}
+                alt="Logo do Estado de Alagoas"
+                style={{
+                  width: "15rem",
+                  background: "#fff",
+                }}
+              />
+            </Logo>
+            <p style={{ fontSize: "1rem", textAlign: "center" }}>
+              Juntos por uma Alagoas de todos
+            </p>
+          </div>
         </Col>
 
         <Col>
