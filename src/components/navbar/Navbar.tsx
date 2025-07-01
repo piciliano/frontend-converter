@@ -1,4 +1,3 @@
-import { FaTh } from "react-icons/fa";
 import {
   Nav,
   Container,
@@ -6,23 +5,29 @@ import {
   NavLinks,
   Link,
   AuthArea,
-  LoginBtn,
-  RegisterBtn,
   GridIcon,
 } from "./styled";
 
 import LogoHeader from "../../assets/Header.png";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   rightExtra?: React.ReactNode;
 }
 
 export function Navbar({ rightExtra }: NavbarProps) {
+  const navigate = useNavigate();
+
   return (
     <Nav>
       <Container>
         <Logo>
-          <img src={LogoHeader} alt="" />
+          <img
+            src={LogoHeader}
+            alt=""
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          />
         </Logo>
 
         <NavLinks>
