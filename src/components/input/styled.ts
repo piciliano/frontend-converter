@@ -6,7 +6,7 @@ export const StyledInput = styled.input`
   border-radius: 4px;
   font-size: ${({ theme }) => theme.font.size.medium};
   color: ${({ theme }) => theme.colors.text};
-  background: #fff;
+  background: ${({ theme }) => theme.colors.card};
   outline: none;
   transition: border 0.2s;
 
