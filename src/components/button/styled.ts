@@ -8,10 +8,11 @@ export const StyledButton = styled.button`
   padding: ${({ theme }) => theme.spacing(1)} ${({ theme }) => theme.spacing(2)};
   font-size: ${({ theme }) => theme.font.size.medium};
   font-weight: ${({ theme }) => theme.font.weight.bold};
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 
   &:hover {
     background: #004377;
+    color: ${({ theme }) => theme.colors.hoverText};
   }
 
   &:disabled {
