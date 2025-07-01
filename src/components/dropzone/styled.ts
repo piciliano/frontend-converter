@@ -14,3 +14,19 @@ export const DropContainer = styled.div`
     border-color: #004377;
   }
 `;
+
+export const ErrorMsg = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: rgba(211, 47, 47, 0.08);
+  color: ${({ theme }) => theme.colors.error || '#d32f2f'};
+  border: 1.5px solid ${({ theme }) => theme.colors.error || '#d32f2f'};
+  font-weight: 500;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.07);
+`;
