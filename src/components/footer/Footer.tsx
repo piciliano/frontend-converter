@@ -5,6 +5,7 @@ import {
   FaClock,
   FaLaptop,
 } from "react-icons/fa";
+import { useTheme } from 'styled-components';
 
 import {
   FooterBg,
@@ -20,6 +21,8 @@ import {
 import LOGO from "../../assets/ALAGOAS.png";
 
 export function Footer() {
+  const theme = useTheme();
+  const isLight = theme.colors.background === '#fff';
   return (
     <FooterBg>
       <FooterContainer>
@@ -48,7 +51,7 @@ export function Footer() {
         </Col>
 
         <Col>
-          <Title>
+          <Title $forceWhite={isLight}>
             <FaLaptop style={{ marginRight: 8 }} />
             Acesso Rápido
           </Title>
@@ -64,7 +67,7 @@ export function Footer() {
 
         {/* Coluna 3 - Contato */}
         <Col>
-          <Title>
+          <Title $forceWhite={isLight}>
             <FaMapMarkerAlt style={{ marginRight: 8 }} />
             Controladoria Geral do Estado
           </Title>
