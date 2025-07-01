@@ -72,7 +72,7 @@ export const PDFToWord = () => {
   return (
     <div>
       <h2>PDF para Word</h2>
-      <Dropzone onFile={handleFile} />
+      <Dropzone onFile={handleFile} accept="application/pdf" />
       {file && <p>Arquivo selecionado: {file.name}</p>}
       <Button
         onClick={handleUpload}
