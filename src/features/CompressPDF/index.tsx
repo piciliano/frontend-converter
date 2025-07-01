@@ -71,7 +71,7 @@ export const CompressPDF = () => {
   return (
     <div>
       <h2>Comprimir PDF</h2>
-      <Dropzone onFile={handleFile} />
+      <Dropzone onFile={handleFile} accept="application/pdf" />
       {file && <p>Arquivo selecionado: {file.name}</p>}
       <Button
         onClick={handleUpload}
