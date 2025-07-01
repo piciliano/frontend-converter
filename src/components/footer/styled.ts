@@ -27,7 +27,6 @@ export const Col = styled.div`
 export const Logo = styled.div`
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 8px;
   letter-spacing: 1.5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 `;
