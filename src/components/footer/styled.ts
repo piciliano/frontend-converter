@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterBg = styled.footer`
-  background: #005ca9;
+  background: ${({ theme }) => theme.colors.primary};
   color: #fff;
   padding: 64px 0 0 0;
   font-family: "Roboto", Arial, sans-serif;
@@ -46,7 +46,7 @@ export const Desc = styled.div`
   opacity: 0.9;
 `;
 
-export const Title = styled.h4`
+export const Title = styled.h4<{ $forceWhite?: boolean }>`
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 24px;
@@ -55,6 +55,7 @@ export const Title = styled.h4`
   gap: 10px;
   position: relative;
   padding-bottom: 8px;
+  color: ${({ theme, $forceWhite }) => $forceWhite ? '#fff' : theme.colors.title};
 
   &::after {
     content: "";
@@ -112,8 +113,8 @@ export const Social = styled.div`
 `;
 
 export const BottomBar = styled.div`
-  background: rgba(0, 0, 0, 0.15);
-  color: #fff;
+  background: ${({ theme }) => theme.colors.secondaryBackground};
+  color: ${({ theme }) => theme.colors.text};
   padding: 20px 0;
   margin-top: 32px;
   text-align: center;
