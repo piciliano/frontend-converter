@@ -76,7 +76,7 @@ export const PDFToImage = () => {
   return (
     <div>
       <h2>PDF para Imagem</h2>
-      <Dropzone onFile={handleFile} />
+      <Dropzone onFile={handleFile} accept="application/pdf" />
       {file && <p>Arquivo selecionado: {file.name}</p>}
       <Button
         onClick={handleUpload}
