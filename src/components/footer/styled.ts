@@ -4,7 +4,7 @@ export const FooterBg = styled.footer`
   background: ${({ theme }) => theme.colors.primary};
   color: #fff;
   padding: 64px 0 0 0;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 `;
 
@@ -56,6 +56,7 @@ export const Title = styled.h4<{ $forceWhite?: boolean }>`
   position: relative;
   padding-bottom: 8px;
   color: ${({ theme, $forceWhite }) => $forceWhite ? '#fff' : theme.colors.title};
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 
   &::after {
     content: "";
@@ -83,6 +84,7 @@ export const ListItem = styled.li`
   gap: 10px;
   line-height: 1.5;
   transition: all 0.2s ease;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 
   &:hover {
     opacity: 0.9;
@@ -113,8 +115,8 @@ export const Social = styled.div`
 `;
 
 export const BottomBar = styled.div`
-  background: ${({ theme }) => theme.colors.secondaryBackground};
-  color: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.primary};
+  color: #fff;
   padding: 20px 0;
   margin-top: 32px;
   text-align: center;
@@ -124,6 +126,7 @@ export const BottomBar = styled.div`
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 
   @media (max-width: 600px) {
     flex-direction: column;
