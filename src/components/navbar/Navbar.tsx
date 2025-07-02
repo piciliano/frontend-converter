@@ -36,6 +36,7 @@ export function Navbar({ rightExtra }: NavbarProps) {
           <Link to="/word-para-pdf">Word para PDF</Link>
           <Link to="/pdf-para-word">PDF para Word</Link>
           <Link to="/pdf-para-imagem">PDF para Imagem</Link>
+          <Link to="/mesclar-pdf">Juntar PDF</Link>
         </NavLinks>
 
         <AuthArea>
