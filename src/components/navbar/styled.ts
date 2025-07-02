@@ -51,6 +51,7 @@ export const NavLinks = styled.div`
   align-items: center;
   flex: 1;
   justify-content: center;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 
   @media (max-width: 1024px) {
     gap: 20px;
@@ -70,6 +71,7 @@ export const Link = styled(RouterLink)`
   padding: 8px 12px;
   border-radius: 6px;
   position: relative;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 
   &:hover {
     color: ${({ theme }) => theme.colors.hoverText};
