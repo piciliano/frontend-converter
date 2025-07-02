@@ -1,5 +1,5 @@
 import { FaCompress, FaFileImage, FaFileWord, FaLayerGroup } from "react-icons/fa";
-import { MdImage } from "react-icons/md";
+import { MdImage, MdContentCut } from "react-icons/md";
 import styled from "styled-components";
 import { useState } from "react";
 import { CompressPDF } from "../features/CompressPDF";
@@ -126,6 +126,13 @@ const ferramentas = [
     title: "Juntar PDF",
     desc: "Mesclar e juntar pdfs e colocá-los em qualquer ordem que desejar",
     path: "/mesclar-pdf",
+  },
+  {
+    icon: <MdContentCut />,
+    color: "#e53935",
+    title: "Dividir PDF",
+    desc: "Separe todas as páginas ou extraia apenas as que desejar de um PDF",
+    path: "/dividir-pdf",
   },
 ];
 
