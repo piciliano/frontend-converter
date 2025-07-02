@@ -1,4 +1,4 @@
-import { FaCompress, FaFileImage, FaFileWord } from "react-icons/fa";
+import { FaCompress, FaFileImage, FaFileWord, FaLayerGroup } from "react-icons/fa";
 import { MdImage } from "react-icons/md";
 import styled from "styled-components";
 import { useState } from "react";
@@ -119,6 +119,13 @@ const ferramentas = [
     title: "PDF para Imagem",
     desc: "Converta páginas de PDF em imagens (PNG, JPG) para fácil visualização e compartilhamento.",
     path: "/pdf-para-imagem",
+  },
+  {
+    icon: <FaLayerGroup />,
+    color: "#8e24aa",
+    title: "Juntar PDF",
+    desc: "Mesclar e juntar pdfs e colocá-los em qualquer ordem que desejar",
+    path: "/mesclar-pdf",
   },
 ];
 
