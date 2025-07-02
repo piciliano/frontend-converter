@@ -8,6 +8,9 @@ import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { ThemeToggle } from "./components/themeToggle/ThemeToggle";
 import { PageWrapper } from "./App.styles";
+import { HelpButton } from "./components/HelpButton";
+import { ChatFloatingButton } from "./components/ChatFloatingButton";
+import { ChatWidget } from "./components/ChatWidget";
 
 import AppRoutes from "./routes";
 
@@ -15,6 +18,7 @@ function App() {
   const [themeMode, setThemeMode] = useState<"light" | "dark">(() => {
     return (localStorage.getItem("themeMode") as "light" | "dark") || "light";
   });
+  const [chatAberto, setChatAberto] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("themeMode", themeMode);
@@ -27,11 +31,16 @@ function App() {
         <PageWrapper>
           <Navbar
             rightExtra={
-              <ThemeToggle themeMode={themeMode} setThemeMode={setThemeMode} />
+              <>
+                <HelpButton onClick={() => setChatAberto(true)} />
+                <ThemeToggle themeMode={themeMode} setThemeMode={setThemeMode} />
+              </>
             }
           />
           <AppRoutes />
           <Footer />
+          <ChatFloatingButton onClick={() => setChatAberto(true)} />
+          <ChatWidget open={chatAberto} onClose={() => setChatAberto(false)} />
         </PageWrapper>
       </BrowserRouter>
     </ThemeProvider>
