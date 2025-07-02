@@ -37,6 +37,10 @@ const FileName = styled.span`
   flex: 1;
   margin-right: 12px;
   color: ${({ theme }) => theme.colors.text};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
 `;
 
 const Actions = styled.div`
@@ -169,7 +173,7 @@ export function MergePDF() {
                         background: snapshot.isDragging ? '#f3f3f3' : undefined,
                       }}
                     >
-                      <FileName>{file.name}</FileName>
+                      <FileName title={file.name}>{file.name}</FileName>
                       <Actions>
                         <Button type="button" onClick={() => remove(i)}><FaTrash /></Button>
                       </Actions>
