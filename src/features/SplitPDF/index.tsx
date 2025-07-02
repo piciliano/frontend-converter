@@ -44,10 +44,12 @@ const PagesInput = styled.input`
 `;
 
 const PdfIconsGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 8px;
+  justify-items: center;
+  max-width: 440px;
+  margin: 16px auto;
 `;
 
 const PdfIconBox = styled.div<{ selected: boolean }>`
