@@ -36,10 +36,12 @@ export const Title = styled.h3`
   font-weight: 700;
   margin: 0 0 8px 0;
   color: ${({ theme }) => theme.colors.cardTitle};
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 `;
 
 export const Desc = styled.p`
   color: ${({ theme }) => theme.colors.cardDesc};
   font-size: 1rem;
   margin: 0;
+  font-family: 'Muller', 'Roboto', Arial, sans-serif;
 `;
