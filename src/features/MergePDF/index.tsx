@@ -4,6 +4,8 @@ import { Dropzone } from "../../components/dropzone/Dropzone";
 import { Button } from "../../components/button/Button";
 import { Loader } from "../../components/loader/Loader";
 import { FaArrowDown, FaArrowUp, FaTrash } from "react-icons/fa";
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import type { DropResult } from '@hello-pangea/dnd';
 
 const Container = styled.div`
   max-width: 500px;
@@ -50,7 +52,6 @@ const StatusMsg = styled.div`
 
 export function MergePDF() {
   const [files, setFiles] = useState<File[]>([]);
-  const [ordem, setOrdem] = useState<number[]>([]);
   const [jobId, setJobId] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -63,21 +64,19 @@ export function MergePDF() {
       return;
     }
     setFiles((prev) => [...prev, file]);
-    setOrdem((prev) => [...prev, files.length]);
     setError(null);
   };
 
-  const move = (from: number, to: number) => {
-    if (to < 0 || to >= ordem.length) return;
-    const newOrdem = [...ordem];
-    const [removed] = newOrdem.splice(from, 1);
-    newOrdem.splice(to, 0, removed);
-    setOrdem(newOrdem);
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+    const newFiles = Array.from(files);
+    const [removed] = newFiles.splice(result.source.index, 1);
+    newFiles.splice(result.destination.index, 0, removed);
+    setFiles(newFiles);
   };
 
   const remove = (idx: number) => {
     setFiles((prev) => prev.filter((_, i) => i !== idx));
-    setOrdem((prev) => prev.filter((i) => i !== idx).map((i) => (i > idx ? i - 1 : i)));
   };
 
   const handleSubmit = async () => {
@@ -90,8 +89,8 @@ export function MergePDF() {
     setStatus(null);
     setDownloadUrl(null);
     const formData = new FormData();
-    ordem.forEach((i) => formData.append("files", files[i]));
-    formData.append("ordem", JSON.stringify(ordem));
+    files.forEach((file) => formData.append("files", file));
+    formData.append("ordem", JSON.stringify(files.map((_, i) => i)));
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/convert/merge-pdf`, {
         method: "POST",
@@ -153,18 +152,36 @@ export function MergePDF() {
       </p>
       <Dropzone onFile={onFile} accept="application/pdf" />
       {error && <StatusMsg style={{ color: "#d32f2f" }}>{error}</StatusMsg>}
-      <FileList>
-        {ordem.map((idx, i) => (
-          <FileItem key={i}>
-            <FileName>{files[idx]?.name}</FileName>
-            <Actions>
-              <Button type="button" onClick={() => move(i, i - 1)} disabled={i === 0}><FaArrowUp /></Button>
-              <Button type="button" onClick={() => move(i, i + 1)} disabled={i === ordem.length - 1}><FaArrowDown /></Button>
-              <Button type="button" onClick={() => remove(idx)}><FaTrash /></Button>
-            </Actions>
-          </FileItem>
-        ))}
-      </FileList>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="pdf-list">
+          {(provided) => (
+            <FileList ref={provided.innerRef} {...provided.droppableProps}>
+              {files.map((file, i) => (
+                <Draggable key={file.name + i} draggableId={file.name + i} index={i}>
+                  {(provided, snapshot) => (
+                    <FileItem
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      style={{
+                        ...provided.draggableProps.style,
+                        boxShadow: snapshot.isDragging ? '0 4px 16px rgba(0,0,0,0.12)' : undefined,
+                        background: snapshot.isDragging ? '#f3f3f3' : undefined,
+                      }}
+                    >
+                      <FileName>{file.name}</FileName>
+                      <Actions>
+                        <Button type="button" onClick={() => remove(i)}><FaTrash /></Button>
+                      </Actions>
+                    </FileItem>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </FileList>
+          )}
+        </Droppable>
+      </DragDropContext>
       <Button onClick={handleSubmit} disabled={loading || files.length < 2} style={{ width: "100%", marginTop: 12 }}>
         {loading ? <Loader /> : "Mesclar PDFs"}
       </Button>
