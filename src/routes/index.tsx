@@ -7,6 +7,7 @@ import { ConvertWord } from "../features/ConvertWord";
 import { PDFToWord } from "../features/PDFToWord";
 import { PDFToImage } from "../features/PDFToImage";
 import { MainContent } from "../App.styles";
+import { MergePDF } from "../features/MergePDF";
 
 export default function AppRoutes() {
   return (
@@ -49,6 +50,14 @@ export default function AppRoutes() {
         element={
           <MainContent>
             <PDFToImage />
+          </MainContent>
+        }
+      />
+      <Route
+        path="/mesclar-pdf"
+        element={
+          <MainContent>
+            <MergePDF />
           </MainContent>
         }
       />
