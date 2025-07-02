@@ -8,6 +8,7 @@ import { PDFToWord } from "../features/PDFToWord";
 import { PDFToImage } from "../features/PDFToImage";
 import { MainContent } from "../App.styles";
 import { MergePDF } from "../features/MergePDF";
+import { SplitPDF } from "../features/SplitPDF";
 
 export default function AppRoutes() {
   return (
@@ -58,6 +59,14 @@ export default function AppRoutes() {
         element={
           <MainContent>
             <MergePDF />
+          </MainContent>
+        }
+      />
+      <Route
+        path="/dividir-pdf"
+        element={
+          <MainContent>
+            <SplitPDF />
           </MainContent>
         }
       />
